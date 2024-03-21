@@ -1,0 +1,61 @@
+body {
+    background-color: orange;
+}
+
+.builder {
+    display: grid;
+
+    padding: 20px;
+
+    gap: 10px 30px;
+    grid-template-columns: 1fr 90px 270px 90px;
+    grid-template-rows: repeat(4, 90px);
+
+    grid-template-areas: 
+    "choose_head choosed_head character weapon"
+    "choose_chestplate choosed_chestplate character ."
+    "choose_leggings choosed_leggings character ."
+    "choose_boots choosed_boots character shield";
+
+    border: solid 5px white;
+    border-top: solid 5px darkgrey;
+    border-left: solid 5px darkgray;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 0px 2px black;
+
+    background-color: lightgray;
+
+
+}
+
+.builder>div {
+    background-color: gray;
+
+    border: solid 2px white;
+    border-top: solid 2px black;
+    border-left: solid 2px black;
+}
+
+.builder .chooser.head {grid-area: choose_head;}
+.builder .chooser.chestplate {grid-area: choose_chestplate;}
+.builder .chooser.leggings {grid-area: choose_leggings;}
+.builder .chooser.boots {grid-area: choose_boots;}
+
+.builder .choosed.head {grid-area: choosed_head;}
+.builder .choosed.chestplate {grid-area: choosed_chestplate;}
+.builder .choosed.leggings {grid-area: choosed_leggings;}
+.builder .choosed.boots {grid-area: choosed_boots;}
+
+.builder .character {
+    grid-area: character;
+    background-color: black;
+}
+
+.builder .weapon {grid-area: weapon;}
+.builder .shield {grid-area: shield;}
+
+.builder .chooser, .builder .choosed {
+    /*border: black solid 1px;*/
+}
