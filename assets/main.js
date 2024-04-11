@@ -168,6 +168,12 @@ window.addEventListener("load", (event) => {});
 window.onload = (event) => {
     console.log("Page loaded");
 
+    let weaponChooser = document.querySelector("#weapon_chooser");
+    weaponChooser.onclick = (event) => {
+        document.querySelector("#weapon_dialog").open = true;
+        //TODO weapon dialog
+    };
+
     ShowItems("helmet");
     ShowItems("chestplate")
     ShowItems("leggings")
