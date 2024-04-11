@@ -38,15 +38,41 @@ body {
     border-left: solid 2px black;
 }
 
+.builder .chooser {
+    display: flex;
+
+    flex-wrap: nowrap;
+
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: darkgray gray;
+}
+
 .builder .chooser.head {grid-area: choose_head;}
 .builder .chooser.chestplate {grid-area: choose_chestplate;}
 .builder .chooser.leggings {grid-area: choose_leggings;}
 .builder .chooser.boots {grid-area: choose_boots;}
 
+.chooser>img {
+    margin: 3px;
+}
+
+.chooser>img.selected {
+    /*box-shadow: 1px 1px 5px 2px rgba(255, 255, 255, 0.65);*/
+    filter: drop-shadow(-1px -5px 1px #4444dd);
+}
+
+.chooser>img:hover {
+    /*box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.65);*/
+    filter: drop-shadow(5px 5px 1px #ffaa00);
+}
+
 .builder .choosed.head {grid-area: choosed_head;}
 .builder .choosed.chestplate {grid-area: choosed_chestplate;}
 .builder .choosed.leggings {grid-area: choosed_leggings;}
 .builder .choosed.boots {grid-area: choosed_boots;}
+
+
 
 .builder .character {
     grid-area: character;
