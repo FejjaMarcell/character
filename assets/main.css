@@ -85,3 +85,78 @@ body {
 .builder .chooser, .builder .choosed {
     /*border: black solid 1px;*/
 }
+
+.chest {
+    padding: 20px;
+    padding-top: 0px;
+
+    border: solid 5px white;
+    border-top: solid 5px darkgrey;
+    border-left: solid 5px darkgray;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 0px 2px black;
+
+    background-color: lightgray;
+
+    outline: 0;
+}
+
+dialog.chest h1 {
+    font-size: 32px;
+    margin: 10px;
+    margin-left: 0;
+    padding: 0;
+
+    color: rgb(92, 92, 92);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+dialog.chest section {
+    display: grid;
+
+    grid-template-columns: repeat(6, 60px);
+    grid-template-rows: auto;
+
+    gap: 5px;
+
+}
+
+dialog.chest section input {
+    display: none;
+}
+
+dialog.chest section input:checked + label {
+    box-shadow: 5px 5px 3px 0px rgba(255, 110, 0, 0.8);
+}
+
+dialog.chest section img {
+    width: 60px;
+    height: 60px;
+
+    box-sizing: border-box;
+
+    background-color: gray;
+
+    border: solid 2px white;
+    border-top: solid 2px black;
+    border-left: solid 2px black;
+}
+
+dialog.chest footer {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin-top: 10px;
+}
+
+dialog.chest footer input {
+    width: 50%;
+    padding: 5px;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    font-weight: bolder;
+}

@@ -25,15 +25,53 @@
             X
         </div>
 
-        <div class="weapon" id="weapon_chooser"></div>
-        <div class="shield" id="shield_chooser"></div>
+        <div class="weapon" id="weapon_chooser">X</div>
+        <div class="shield" id="shield_chooser">X</div>
     </div>
 
-    <dialog id="weapon_dialog">
-        WEAPON CHOOSER
+    <dialog class="chest" id="weapon_dialog">
+        <form method="dialog">
+            <header>
+                <h1>Weapon chooser</h1>
+            </header>
+            <section>
+                <input id="i1" name="weapon" value="i1" type="radio"/>
+                <label for="i1">
+                    <img alt="item-1" src="assets/imgs/Minecraft Sword-595b40b75ba036ed117d8664.svg"/>
+                </label>
+                
+                <input id="i2" name="weapon" value="i2" type="radio"/>
+                <label for="i2">
+                    <img alt="item-2" src="assets/imgs/Minecraft Axe-595b40b75ba036ed117d865d.svg"/>
+                </label>
+
+                <input id="i3" name="weapon" value="i3" type="radio"/>
+                <label for="i3">
+                    <img alt="item-3" src="assets/imgs/Minecraft Pickaxe-595b40b75ba036ed117d8661.svg"/>
+                </label>
+
+                <input id="i4" name="weapon" value="i4" type="radio"/>
+                <label for="i4">
+                    <img alt="item-4" src="assets/imgs/Minecraft Shovel-595b40b75ba036ed117d8662.svg"/>
+                </label>
+
+                <input id="i5" name="weapon" value="i5" type="radio"/>
+                <label for="i5">
+                    <img alt="item-2" src="assets/imgs/Minecraft Axe-595b40b75ba036ed117d865d.svg"/>
+                </label>
+
+                <input id="i6" name="weapon" value="i6" type="radio"/>
+                <label for="i6">
+                    <img alt="item-2" src="assets/imgs/Minecraft Axe-595b40b75ba036ed117d865d.svg"/>
+                </label>
+            </section>
+            <footer>
+                <input id="weaponEquip" type="submit" value="Equip"/>
+            </footer>
+        </form>
     </dialog>
 
-    <dialog id="shield_dialog">
+    <dialog class="chest" id="shield_dialog">
         SHIELD CHOOSER
     </dialog>
 

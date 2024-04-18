@@ -163,15 +163,28 @@ let itemSelectedName = {
 window.addEventListener("load", (event) => {});
 */
 
+const weaponDialog = document.querySelector("#weapon_dialog");
+const weaponEquip = document.querySelector("#weapon_equip");
 
+const shieldDialog = document.querySelector("#shield_dialog");
 
 window.onload = (event) => {
     console.log("Page loaded");
 
     let weaponChooser = document.querySelector("#weapon_chooser");
     weaponChooser.onclick = (event) => {
-        document.querySelector("#weapon_dialog").open = true;
-        //TODO weapon dialog
+        console.log("OPEN - weapon dialog");
+        weaponDialog.showModal();
+    };
+    weaponEquip.addEventListener("submit", function(event){
+        let data = new FormData(weaponDialog.firstElementChild);
+        console.log(data);
+    })
+
+    let shieldChooser = document.querySelector("#shield_chooser");
+    shieldChooser.onclick = (event) => {
+        console.log("OPEN - shield dialog");
+        shieldDialog.showModal();
     };
 
     ShowItems("helmet");
@@ -304,3 +317,5 @@ function ShowChestplate(){
     }
 }
 */
+
+
