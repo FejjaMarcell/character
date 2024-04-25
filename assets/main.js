@@ -88,6 +88,54 @@ const itemList = {
             img: "assets/imgs/s_d.png",
         },
     ],
+    tools: [
+        {
+            name: "Sword",
+            img: "assets/imgs/Minecraft Sword-595b40b75ba036ed117d8664.svg"
+        },
+        {
+            name: "Pickaxe",
+            img: "assets/imgs/Minecraft Pickaxe-595b40b75ba036ed117d8661.svg"
+        },
+        {
+            name: "Axe",
+            img: "assets/imgs/Minecraft Axe-595b40b75ba036ed117d865d.svg"
+        },
+        {
+            name: "Hoe",
+            img: "assets/imgs/hoe.webp"
+        },
+        {
+            name: "Shovel",
+            img: "assets/imgs/Minecraft Shovel-595b40b75ba036ed117d8662.svg"
+        },
+        {
+            name: "Stick",
+            img: "assets/imgs/stick.webp"
+        },
+        {
+            name: "Wrench",
+            img: "assets/imgs/Wrench.webp"
+        },
+    ],
+    shields: [
+        {
+            name: "Shield",
+            img: "assets/imgs/Shield_JE2_BE1.webp"
+        },
+        {
+            name: "Torch",
+            img: "assets/imgs/Torch.webp"
+        },
+        {
+            name: "Totem of Undying",
+            img: "assets/imgs/Totem_of_Undying_JE2_BE2.webp"
+        },
+        {
+            name: "Lucy Axolotl",
+            img: "assets/imgs/axolotl.webp"
+        },
+    ]
 };
 /*
 const chestplateList = [
@@ -145,6 +193,10 @@ let itemSelectedName = {
     chestplate: itemList.chestplate[0].name,
     leggings: itemList.leggings[0].name,
     boots: itemList.boots[0].name,
+
+    tool: itemList.tools[0].name,
+    shield: itemList.shields[0].name,
+
 }
 
 //let chestplateSelectedName = itemList[1];
@@ -167,30 +219,42 @@ const weaponDialog = document.querySelector("#weapon_dialog");
 const weaponEquip = document.querySelector("#weapon_equip");
 
 const shieldDialog = document.querySelector("#shield_dialog");
+const shieldEquip = document.querySelector("#shield_equip");
 
 window.onload = (event) => {
     console.log("Page loaded");
 
-    let weaponChooser = document.querySelector("#weapon_chooser");
+    let weaponChooser = document.querySelector("#weapon_choosed");
     weaponChooser.onclick = (event) => {
         console.log("OPEN - weapon dialog");
         weaponDialog.showModal();
     };
-    weaponEquip.addEventListener("submit", function(event){
+    weaponEquip.addEventListener("click", function(){
         let data = new FormData(weaponDialog.firstElementChild);
-        console.log(data);
-    })
+        itemSelectedName["tool"] = data.get("weapon");
+        console.log("asd")
+        ShowTools();
+    });
 
-    let shieldChooser = document.querySelector("#shield_chooser");
+    let shieldChooser = document.querySelector("#shield_choosed");
     shieldChooser.onclick = (event) => {
         console.log("OPEN - shield dialog");
         shieldDialog.showModal();
     };
+    shieldEquip.addEventListener("click", function(){
+        let data = new FormData(shieldDialog.firstElementChild);
+        itemSelectedName["shield"] = data.get("shield");
+        console.log("good")
+        ShowShields();
+    });
 
     ShowItems("helmet");
-    ShowItems("chestplate")
-    ShowItems("leggings")
-    ShowItems("boots")
+    ShowItems("chestplate");
+    ShowItems("leggings");
+    ShowItems("boots");
+
+    ShowTools();
+    ShowShields();
     /*
     ShowChestplate();
     ShowLeggings();
@@ -250,6 +314,85 @@ function ShowItems(type){
     
 
     
+}
+
+function ShowTools() {
+    
+    let weaponSection = document.querySelector("#weapon_section")
+    weaponSection.innerHTML = "";
+
+    let weaponChoosed = document.querySelector("#weapon_choosed");
+    weaponChoosed.innerHTML = "";
+
+    for(tool of itemList["tools"]){
+        CreateToolInput(weaponSection, tool.name, tool.img);
+
+        if(tool.name == itemSelectedName["tool"]){
+            let simg = document.createElement("img");
+            simg.src = tool.img;
+            simg.alt = "SELECTED - " + tool.name;
+            weaponChoosed.appendChild(simg);
+        }
+    }
+}
+
+function ShowShields() {
+
+    let shieldSection = document.querySelector("#shield_section")
+    shieldSection.innerHTML = "";
+
+    let shieldChoosed = document.querySelector("#shield_choosed");
+    shieldChoosed.innerHTML = "";
+
+    for(shield of itemList["shields"]){
+        CreateShieldInput(shieldSection, shield.name, shield.img);
+
+        if(shield.name == itemSelectedName["shield"]){
+            let simg = document.createElement("img");
+            simg.src = shield.img;
+            simg.alt = "SELECTED - " + shield.name;
+            shieldChoosed.appendChild(simg);
+        }
+    }
+}
+
+
+function CreateToolInput(section, name, path) {
+    let input = document.createElement("input");
+    input.id = "item_" + name;
+    input.name = "weapon";
+    input.value = name;
+    input.type = "radio";
+
+    let img = document.createElement("img");
+    img.src = path;
+    img.alt = name;
+
+    let label = document.createElement("label");
+    label.setAttribute("for", "item_" + name);
+    label.appendChild(img);
+
+    section.appendChild(input);
+    section.appendChild(label);
+}
+
+function CreateShieldInput(section, name, path) {
+    let input = document.createElement("input");
+    input.id = "item_" + name;
+    input.name = "shield";
+    input.value = name;
+    input.type = "radio";
+
+    let img = document.createElement("img");
+    img.src = path;
+    img.alt = name;
+
+    let label = document.createElement("label");
+    label.setAttribute("for", "item_" + name);
+    label.appendChild(img);
+
+    section.appendChild(input);
+    section.appendChild(label);
 }
 /*
 function ShowChestplate(){
