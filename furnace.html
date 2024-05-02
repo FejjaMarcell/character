@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/furnace.css"/>
+    <title>Block Game</title>
+</head>
+<body>
+    <div class="furnace">
+        <h1>Furnace</h1>
+
+        <div class="item" id="item_choosed">ITEM</div>
+        <div class="fire">
+            <img alt="Fire" src="assets/imgs/furnace_flame.PNG"/>
+        </div>
+        <div class="fuel" id="fuel_choosed">FUEL</div>
+        <div class="arrow">
+            <img alt="Fire" src="assets/imgs/furnace_arrow.PNG"/>
+        </div>
+        <div class="cooked" id="cooked_choosed">COOKED</div>
+    </div>
+
+
+    <dialog class="chest" id="item_dialog">
+        <form method="dialog">
+            <header>
+                <h1>Item chooser</h1>
+            </header>
+            <section id="item_section"></section>
+            <footer>
+                <input id="item_equip" type="submit" value="Equip"/>
+            </footer>
+        </form>
+    </dialog>
+
+    <dialog class="chest" id="fuel_dialog">
+        <form method="dialog">
+            <header>
+                <h1>Fuel chooser</h1>
+            </header>
+            <section id="fuel_section"></section>
+            <footer>
+                <input id="fuel_equip" type="submit" value="Equip"/>
+            </footer>
+        </form>
+    </dialog>
+
+    <dialog class="chest" id="cooked_dialog">
+        <form method="dialog">
+            <header>
+                <h1>Done chooser</h1>
+            </header>
+            <section id="cooked_section"></section>
+            <footer>
+                <input id="cooked_equip" type="submit" value="Equip"/>
+            </footer>
+        </form>
+    </dialog>
+
+    <script src="assets/furnace.js"></script>
+</body>
+</html>
